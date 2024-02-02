@@ -1,0 +1,9 @@
+--cookies-from-browser firefox
+--mark-watched
+
+# Save in ~/Videos/youtube
+-o ~/Videos/youtube/%(title)s.%(ext)s
+
+# Prefer lower resolutions
+-f "best[height<=1080]"
+
