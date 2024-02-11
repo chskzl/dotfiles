@@ -1,0 +1,15 @@
+configuration{
+    modes: "drun";
+    lines: 5;
+    font: "IBM Plex Mono 12";
+    show-icons: true;
+    terminal: "kitty";
+    drun-display-format: "{name}";
+    location: 0;
+    disable-history: false;
+	cycle: false;
+    hide-scrollbar: true;
+	display-drun: "";
+}
+
+@theme "theme"

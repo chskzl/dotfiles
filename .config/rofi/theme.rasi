@@ -1,0 +1,89 @@
+* {
+    bg:  #282524;
+    fg:  #fbf1c7;
+    accent:  #98971a;
+
+    background-color:  transparent;
+}
+
+window {
+    location: center;
+    anchor: center;
+    transparency: "real";
+    padding: 10px;
+    border: 0px;
+    border-radius: 3px;
+    spacing: 0;
+    children: [mainbox];
+    orientation: horizontal;
+}
+
+mainbox {
+    spacing: 0;
+    children: [ inputbar, message, listview ];
+}
+
+message {
+    color: @fg;
+    padding: 5px;
+    border-color: @fg;
+    border: 0px 2px 2px 2px;
+    background-color: @fg;
+}
+
+inputbar {
+    color: @fg;
+    padding:    11px;
+    background-color:   @bg;
+    border: 1px;
+    border-radius: 3px 3px 0px 0px;
+    border-color: @accent;
+}
+
+entry, prompt, case-indicator {
+    text-font: inherit;
+    text-color:inherit;
+}
+
+prompt {
+    margin: 0px 1em 0em 0em ;
+}
+
+listview {
+    padding: 6px;
+    border-radius: 0px 0px 3px 3px;
+    border-color: @bg;
+    border: 0px 1px 1px 1px;
+    background-color: rgba(40,37,36,0.9);
+    dynamic: false;
+}
+
+element {
+    padding: 3px;
+    vertical-align: 0.5;
+    border-radius: 3px;
+	text-color: @fg;
+}
+
+element selected.normal {
+	background-color: @accent;
+	text-color: @bg;
+}
+
+element-text, element-icon {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+button {
+    padding: 6px;
+    horizontal-align: 0.5;
+    border: 2px 0px 2px 2px;
+    border-radius: 4px 0px 0px 4px;
+    border-color: @fg;
+}
+
+button selected normal {
+    border: 2px 0px 2px 2px;
+    border-color: @fg;
+}
