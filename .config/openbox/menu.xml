@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+
+<menu id="apps-accessories-menu" label="Accessories">
+  <item label="Calculator">
+    <action name="Execute">
+      <command>galculator</command>
+    </action>
+  </item>
+  <item label="Fluent Reader">
+    <action name="Execute">
+      <command>fluent-reader --no-sandbox</command>
+    </action>
+  </item>
+</menu>
+
+<menu id="apps-net-menu" label="Internet">
+  <item label="Firefox">
+    <action name="Execute">
+      <command>firefox</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>Firefox</wmclass>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Thunderbird">
+    <action name="Execute">
+      <command>thunderbird</command>
+      <startupnotify><enabled>yes</enabled></startupnotify>
+    </action>
+  </item>
+  <item label="Element">
+    <action name="Execute">
+      <command>element-desktop</command>
+    </action>
+  </item>
+  <item label="Deluge">
+    <action name="Execute">
+      <command>deluge-gtk</command>
+      <startupnotify><enabled>yes</enabled></startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="apps-office-menu" label="Office">
+  <item label="VSCode">
+    <action name="Execute">
+      <command>codium</command>
+    </action>
+  </item>
+  <item label="Logseq">
+    <action name="Execute">
+      <command>logseq</command>
+    </action>
+  </item>
+  <item label="Diffuse">
+    <action name="Execute">
+      <command>diffuse -s</command>
+    </action>
+  </item>
+</menu>
+
+<menu id="apps-multimedia-menu" label="Multimedia">
+  <item label="Tauon Music Box">
+    <action name="Execute">
+	  <command>/opt/tauon-music-box/tauonmb.sh</command>
+      <startupnotify><enabled>yes</enabled></startupnotify>
+    </action>
+  </item>
+  <item label="mpv">
+    <action name="Execute">
+      <command>mpv --player-operation-mode=pseudo-gui</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>mpv</wmclass>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Kdenlive">
+    <action name="Execute">
+	  <command>kdenlive</command>
+      <startupnotify><enabled>yes</enabled></startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="apps-graphics-menu" label="Graphics">
+  <item label="Gimp">
+    <action name="Execute">
+      <command>gimp</command>
+      <startupnotify><enabled>yes</enabled></startupnotify>
+    </action>
+  </item>
+  <item label="Inkscape">
+    <action name="Execute">
+      <command>inkscape</command>
+      <startupnotify><enabled>yes</enabled></startupnotify>
+    </action>
+  </item>
+  <item label="Eye of Gnome">
+    <action name="Execute">
+      <command>eog</command>
+      <startupnotify><enabled>yes</enabled></startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="system-menu" label="Settings">
+  <item label="Sound Settings">
+    <action name="Execute">
+      <command>pavucontrol</command>
+      <startupnotify><enabled>yes</enabled></startupnotify>
+    </action>
+  </item>
+  <item label="Openbox Configuration Manager">
+    <action name="Execute">
+      <command>obconf</command>
+      <startupnotify><enabled>yes</enabled></startupnotify>
+    </action>
+  </item>
+  <item label="Theme Settings">
+    <action name="Execute">
+      <command>lxappearance</command>
+      <startupnotify><enabled>yes</enabled></startupnotify>
+    </action>
+  </item>
+  <item label="Manage Cups Printers">
+    <action name="Execute">
+      <command>xdg-open http://localhost:631/</command>
+      <startupnotify>
+        <enabled>no</enabled>
+        <icon>cups</icon>
+      </startupnotify>
+    </action>
+  </item>
+  <separator />
+  <item label="Reconfigure Openbox">
+    <action name="Reconfigure" />
+  </item>
+</menu>
+
+<menu id="root-menu" label="Openbox 3">
+  <separator label="Applications" />
+  <menu id="apps-accessories-menu"/>
+  <menu id="apps-graphics-menu"/>
+  <menu id="apps-net-menu"/>
+  <menu id="apps-office-menu"/>
+  <menu id="apps-multimedia-menu"/>
+  <item label="Terminal">
+    <action name="Execute">
+      <command>kitty</command>
+      <startupnotify><enabled>yes</enabled></startupnotify>
+    </action>
+  </item>
+  <item label="Files">
+    <action name="Execute">
+      <command>nemo</command>
+      <startupnotify><enabled>yes</enabled></startupnotify>
+    </action>
+  </item>
+  <separator label="System" />
+  <menu id="system-menu"/>
+  <separator />
+  <item label="Quit">
+    <action name="Execute">
+      <command>oblogout</command>
+      <startupnotify><enabled>yes</enabled></startupnotify>
+    </action>
+  </item>
+</menu>
+
+</openbox_menu>
