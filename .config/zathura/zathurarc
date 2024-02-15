@@ -1,0 +1,20 @@
+set selection-clipboard    clipboard
+set selection-notification false
+set statusbar-home-tilde   true
+set window-title-basename  true
+
+set recolor true
+set recolor-lightcolor "#1d2021"
+set recolor-darkcolor "#fbf1c7"
+
+map j navigate
+map <Up> navigate
+map k navigate previous
+map <Down> navigate previous
+map f toggle_fullscreen
+map [fullscreen] j navigate
+map [fullscreen] <Up> navigate
+map [fullscreen] k navigate previous
+map [fullscreen] <Down> navigate previous
+map [fullscreen] f toggle_fullscreen
+map b recolor
