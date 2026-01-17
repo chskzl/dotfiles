@@ -1,0 +1,17 @@
+configuration{
+    modes: "drun";
+    lines: 5;
+    font: "IBM Plex Mono 12";
+    show-icons: true;
+    terminal: "kitty";
+    drun-display-format: "{name}";
+    location: 0;
+    disable-history: true;
+	cycle: false;
+    hide-scrollbar: true;
+	display-drun: "";
+	drun-match-fields: "name";
+	matching: "prefix";
+}
+
+@theme "everforest"
