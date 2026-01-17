@@ -1,0 +1,4 @@
+#!/bin/sh
+
+doas pacman -Syu
+yay -Syu

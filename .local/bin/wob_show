@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ $1 == "-v" ]; then
+	out=$(pactl get-sink-volume \@DEFAULT_SINK@ | head -n1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')
+elif [ $1 == "-b" ]; then
+	out=$(echo $(expr $(brightnessctl g) "/" 647))
+fi
+
+echo $out $style > $XDG_RUNTIME_DIR/wob.sock &
+

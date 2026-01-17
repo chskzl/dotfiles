@@ -1,0 +1,14 @@
+#!/bin/sh
+
+CUR=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused)' | jq -r '.current_workspace')
+
+if [ $1 == "prev" ]; then
+	TO=$(expr $CUR - 1)
+elif [ $1 == "next" ]; then
+	TO=$(expr $CUR + 1)
+fi
+
+if [[ $TO -ge 1 && $TO -le 5 ]]; then
+swaymsg workspace number $TO
+fi
+

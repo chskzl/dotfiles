@@ -1,0 +1,18 @@
+#!/bin/sh
+
+touch $HOME/.bat
+BAT=$(cat /sys/class/power_supply/BAT0/capacity)
+OLDID=$(cat $HOME/.bat)
+AC=$(cat /sys/class/power_supply/AC/online)
+
+
+#if [ $BAT2 -gt "10" ] && [ $BAT -lt "11" ]; then
+if [ $AC -eq "0" ] && [ $BAT -lt "11" ]; then
+	notify-send "battery low" "pls charge it" -r $OLDID -t 15000 -p > $HOME/.bat
+fi
+
+if [ $AC -eq "1" ]; then
+	notify-send "" "" -r $OLDID
+fi
+
+#echo $BAT > $HOME/.bat
