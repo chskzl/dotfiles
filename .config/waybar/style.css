@@ -1,0 +1,178 @@
+@define-color ef-red #f85552;
+@define-color ef-orange #f57d26;
+@define-color ef-yellow #dfa000;
+@define-color ef-green #8da101;
+@define-color ef-blue #3a94c5;
+@define-color ef-aqua #35a77c;
+@define-color ef-purple #fd69ba;
+
+@define-color ef-fg #d3c6aa;
+@define-color ef-bg #272e33;
+@define-color ef-gray #7a8478;
+
+* {
+	font-family: "IBM Plex Mono";
+    font-size: 18px;
+}
+
+window#waybar {
+	/* edited the wallpaper itself to simulate a frosted effect */
+	background: url("/home/chase/.local/share/wallpapers/bamboo_blur4px.png");
+    color: @ef-fg;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+tooltip {
+    background-color: rgba(39, 46, 51, 0.9);
+}
+tooltip label {
+}
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+}
+
+#workspaces *{
+	font-family: "eldur";
+	font-size: 26px;
+}
+
+#workspaces button {
+    padding: 0;
+	margin: 0;
+    background-color: transparent;
+    color: @ef-fg;
+}
+
+#workspaces button:hover {
+    background: rgba(39, 46, 51, 0.2);
+}
+
+#workspaces button.focused {
+	box-shadow: inset 0 3px @ef-fg;
+}
+
+#workspaces button.urgent {
+    background-color: @ef-red;
+}
+
+#mode {
+	color: @ef-purple;
+    box-shadow: inset 0 3px @ef-purple;
+}
+
+#clock,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd,
+#mpris {
+    padding: 0 10px;
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+#bluetooth.connected {
+	color: @ef-blue;
+}
+
+#bluetooth.disabled {
+	color: @ef-gray;
+}
+
+#battery {
+}
+
+#battery.charging, #battery.plugged {
+	color: @ef-green;
+}
+
+@keyframes blink {
+    to {
+        color: transparent;
+    }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    color: @ef-red;
+    animation-name: blink;
+    animation-duration: 1.2s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.warning:not(.charging) {
+	color: @ef-orange;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#network {
+}
+
+#network.disconnected {
+	color: @ef-red;
+}
+
+#tray {
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @ef-red;
+}
+
+#privacy {
+    padding: 0;
+}
+
+#privacy-item {
+    padding: 0 5px;
+    color: white;
+}
+
+#privacy-item.screenshare {
+    background-color: #cf5700;
+}
+
+#privacy-item.audio-in {
+    background-color: #1ca000;
+}
+
+#privacy-item.audio-out {
+    background-color: #0069d4;
+}
