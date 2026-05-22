@@ -41,7 +41,7 @@
     },
     "sway/window": {
 		"tooltip": false,
-		"format-alt": "{app_id} {shell}",
+		//"format-alt": "{app_id} {shell}",
 		"max-length": 64
     },
 	"mpris": {
