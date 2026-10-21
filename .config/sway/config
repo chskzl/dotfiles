@@ -1,6 +1,3 @@
-# Default config for sway
-# Read `man 5 sway` for a complete reference.
-
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -16,22 +13,28 @@ exec_always waybar
 #exec wl-clip-persist --clipboard both # broken
 exec tail -f /tmp/wobpipe | wob
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec_always nm-applet --indicator
+exec swayidle -w timeout 300 'swaymsg "output * power off"' resume 'swaymsg "output * power on"'
 
-for_window [window_type="dialog"] floating enable
-for_window [window_role="dialog"] floating enable
-for_window [window_role="utility"] floating enable
-for_window [window_role="toolbar"] floating enable
-for_window [window_role="splash"] floating enable
-for_window [window_role="menu"] floating enable
-for_window [window_role="dropdown_menu"] floating enable
-for_window [window_role="popup_menu"] floating enable
-for_window [window_role="tooltip"] floating enable
-for_window [class="Beyond-All-Reason"] floating enable
-for_window [class="spring"] fullscreen enable
-for_window [shell="xwayland"] title_format "[XWayland] %title"
-#for_window [class="zoom"] floating enable
-for_window [app_id="zoom" title="^zoom$"] border none, floating enable
+for_window {
+    [window_type="dialog"] floating enable
+    [window_role="dialog"] floating enable
+    [window_role="utility"] floating enable
+    [window_role="toolbar"] floating enable
+    [window_role="splash"] floating enable
+    [window_role="menu"] floating enable
+    [window_role="dropdown_menu"] floating enable
+    [window_role="popup_menu"] floating enable
+	[window_role="pop-up"] floating enable
+	[window_role="bubble"] floating enable
+    [window_role="tooltip"] floating enable
+    [class="Beyond-All-Reason"] floating enable
+    [class="spring"] fullscreen enable
+	[class="steam_app*"] inhibit_idle focus
+	[app_id="^.*"] inhibit_idle fullscreen
+    #[shell="xwayland"] title_format "%title [XWayland] %role %type %class"
+	#[app_id="kitty"] move to scratchpad, scratchpad show, $t_pos
+    #[app_id="zoom" title="^zoom$"] border none, floating enable
+}
 
 input type:touchpad {
 	tap enabled
@@ -52,8 +55,10 @@ focus_follows_mouse no
     bindsym $mod+Return exec kitty
     bindsym $mod+q kill
     bindsym $mod+space exec rofi -show
-	bindsym $mod+w exec firefox
+	#bindsym $mod+w exec firefox
+	bindsym $mod+w exec librewolf
 	bindsym $mod+e exec nemo
+	#bindsym $mod+u exec /home/chase/.local/bin/treescript
 	bindsym Ctrl+Alt+Delete exec /home/chase/.local/bin/ctrl_alt_del
 
     # Drag floating windows by holding down $mod and left mouse button.
@@ -107,7 +112,7 @@ focus_follows_mouse no
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+b splith
+    bindsym $mod+h splith
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
@@ -126,6 +131,9 @@ focus_follows_mouse no
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+
+	bindsym $mod+Shift+minus move scratchpad
+	bindsym $mod+minus scratchpad show
 #
 # Resizing containers:
 #
@@ -153,8 +161,7 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86AudioPrev exec playerctl previous
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%- && /home/chase/.local/bin/wob_show -b
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+ && /home/chase/.local/bin/wob_show -b
-	# grim required for screenshot on wayland
-    bindsym Print exec grim
-	#bindswitch --locked lid:on exec systemctl suspend
+    bindsym Print exec grim # screenshot
+	#bindswitch --locked lid:toggle exec gtklock -d && systemctl sleep
 
 include /etc/sway/config.d/*
