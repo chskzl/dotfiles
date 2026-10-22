@@ -52,17 +52,18 @@ bindkey '^[[1;5C' forward-word
 bindkey '^H' backward-kill-word                              # delete previous word with ctrl+backspace
 bindkey '^[[Z' undo                                          # Shift+tab undo last action
 
-# bindkey -s '^l' '^ureset\n'                                  # bind ctrl+l to reset instead of clear
+bindkey -s '^l' '^uc\n'                                  # bind ctrl+l to c instead of clear
 
 ## Alias section 
-alias c="clear && printf '\033[3J'"
+alias c="clear && printf '\033[3J'" # clear the scrollback, works more consistently than 'reset'
 alias v="vim"
-alias d="ls -alh"
-alias ls="ls -a --color=auto"
-alias mv="mv -iv"
-alias cp="cp -iv"
+alias g="git"
+alias ls="ls -a --color=auto" # show all, with color
+alias d="ls -lh" # long listed format, human readable
+alias mv="mv -iv" # prompt before overwrite, verbose
+alias cp="cp -iv" # prompt before overwrite, verbose
+alias mkdir="mkdir -p" # create parent directories if they don't exist
 alias mb="make build"
-alias y="yt-dlp"
 
 # Curl
 alias weather="curl https://wttr.in/"
@@ -80,11 +81,8 @@ autoload -U compinit colors zcalc
 compinit -d
 colors
 
-# Use syntax highlighting
 source /home/$USER/.local/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# Use history substring search
 source /home/$USER/.local/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-# Use autosuggestion
 source /home/$USER/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
