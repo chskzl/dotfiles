@@ -1,4 +1,5 @@
 {
+	"layer": "bottom",
     "height": 32,
     "spacing": 4, // Gaps between modules
     "modules-left": [
@@ -11,9 +12,10 @@
     "modules-right": [
 		"mpris",
         "tray",
+		"custom/rote",
+        "network",
 		"bluetooth",
         "pulseaudio",
-        //"network",
         "battery",
         "clock"
     ],
@@ -94,7 +96,7 @@
 		"format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "󰤮",
-		"on-click": "networkmanager_dmenu",
+		"on-click": "/usr/bin/nm-sidebar --toggle",
         "tooltip-format": "interface {ifname}\naddress {gwaddr}\nstrength {signalStrength}%"
     },
 	"bluetooth": {
@@ -104,7 +106,7 @@
 		"tooltip-format": "{controller_alias}\t{controller_address}",
 		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n{device_enumerate}",
 		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-		"on-click": "blueberry"
+		"on-click": "kitty bluetui"
 	},
     "pulseaudio": {
         "format": "{icon}",
@@ -113,8 +115,13 @@
         "format-icons": {
             "default": ["", "", "", "", "", "", "", "", "", ""]
         },
-        "on-click": "pavucontrol",
+        "on-click": "kitty wiremix",
 		"on-scroll-up": "",
 		"on-scroll-down": ""
-    }
+    },
+	"custom/rote": {
+		"format": "{icon}",
+		"format-icons": { "default": "󰠮" },
+		"on-click": "$HOME/.local/bin/rote"
+	}
 }

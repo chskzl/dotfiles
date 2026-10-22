@@ -80,11 +80,13 @@ button:hover {
 #custom-media,
 #tray,
 #mode,
+#network,
 #idle_inhibitor,
 #scratchpad,
 #power-profiles-daemon,
 #mpd,
-#mpris {
+#mpris,
+#custom {
     padding: 0 10px;
 }
 
